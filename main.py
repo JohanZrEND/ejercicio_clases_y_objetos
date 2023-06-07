@@ -2,19 +2,59 @@ from alumno import Alumno
 from aula import Aula
 from profesor import Profesor
 
-aula = Aula()
+aulas = [Aula(), Aula(), Aula(), Aula(), Aula()]
 
-mi_profe = Profesor("javier", 0, 10)
-aula.set_profesor(mi_profe)
+contenedor = [
+    {
+        "aula": Aula(),
+        "profesor": Profesor("Victor", 0, 10),
+        "alumnos": [    
+            Alumno("Sortilegio", "A", "shorty@hotmail.com"),
+            Alumno("Marco", "A", "marco@gmail.com")
+        ]
+    },
+    {
+        "aula": Aula(),
+        "profesor": Profesor("Antonio", 2, 8),
+        "alumnos": [    
+            Alumno("Pedro", "A", "pedro@hotmail.com"),
+            Alumno("Raquel", "A", "raquel@gmail.com"),
+        ]
+    },
+    {
+        "aula": Aula(),
+        "profesor": Profesor("Nuria", 1, 9),
+        "alumnos": [    
+            Alumno("Persefone", "A", "perse@gmail.com"),
+            Alumno("Paula", "A", "paula@hotmail.com"),
+            Alumno("Pepito", "A", "pepitoco@gmail.com"),
+        ]
+    },
+    {
+        "aula": Aula(),
+        "profesor": None,
+        "alumnos": [    
+            Alumno("Johan", "A", "johan@hotmail.com"),
+            Alumno("Jack", "A", "jack@gmail.com"),
+            Alumno("Paula", "A", "sofia@hotmail.com"),
+            Alumno("Pepito", "A", "marco@gmail.com")
+        ]
+    },
+    {
+        "aula": Aula(),
+        "profesor": Profesor("Agustino", 3, 7),
+        "alumnos": []
+    }
+]
 
-aula.add(Alumno("Sofia", "A", "sofia@hotmail.com"))
-aula.add(Alumno("Marco", "A", "marco@gmail.com"))
-aula.add(Alumno("Pedro", "A", "pedro@hotmail.com"))
-aula.add(Alumno("Miguel", "A", "miguel@hotmail.com"))
-aula.add(Alumno("Hugo", "A", "hugo@gmail.com"))
-aula.add(Alumno("Raquel", "A", "raquel@gmail.com"))
-aula.add(Alumno("Pepe", "A", "pepe@gmail.com"))
+for item in contenedor:
+    item["aula"].set_profesor(item["profesor"]),
+    for alumno in item["alumnos"]:
+        item["aula"].add(alumno)
 
-aula.puntuar()
-print()
-aula.convocar_examenes()
+    print("-----------------------------------------------------------------------")
+    item["aula"].puntuar()
+    print()
+    item["aula"].convocar_examenes()
+    print("-----------------------------------------------------------------------")
+

@@ -16,15 +16,18 @@ class Aula:
 
     def convocar_examenes(self):
         print(f"PROFESOR: {self.profesor}")
-        for alumno in self.alumnos:
-            alumno.convocar_examen()
+        if len(self.alumnos) > 0:
+            for alumno in self.alumnos:
+                alumno.convocar_examen()
+
         print()
         
     def puntuar(self):
         print(f"PROFESOR: {self.profesor}")
-        for alumno in self.alumnos:
-            alumno.setNota(self.profesor.generar_nota())
-            alumno.describe()
+        if self.profesor:
+            for alumno in self.alumnos:
+                alumno.setNota(self.profesor.generar_nota())
+                alumno.describe()
 
     def set_profesor(self, profesor):
         self.profesor = profesor
