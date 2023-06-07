@@ -8,8 +8,8 @@ class Alumno:
     def setNota(self, nota=0):
         self.nota = nota
 
-    def convocarExamen(self, turno):
-        if self.nota >= 5 and self.turno == turno:
+    def convocar_examen(self):
+        if self.nota >= 5:
             print(f"{self.correo} - {self.nombre} - CONVOCADO")
 
     def describe(self):
