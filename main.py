@@ -32,7 +32,7 @@ contenedor = [
     },
     {
         "aula": Aula(),
-        "profesor": None,
+        "profesor": Profesor("Nuria", 1, 9),
         "alumnos": [    
             Alumno("Johan", "A", "johan@hotmail.com"),
             Alumno("Jack", "A", "jack@gmail.com"),
@@ -43,7 +43,9 @@ contenedor = [
     {
         "aula": Aula(),
         "profesor": Profesor("Agustino", 3, 7),
-        "alumnos": []
+        "alumnos": [
+            Alumno("Ramon", "A", "ramon@gmail.com")
+        ]
     }
 ]
 
