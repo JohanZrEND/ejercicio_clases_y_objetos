@@ -32,7 +32,7 @@ contenedor = [
     },
     {
         "aula": Aula(),
-        "profesor": Profesor("Nuria", 1, 9),
+        "profesor": None,
         "alumnos": [    
             Alumno("Johan", "A", "johan@hotmail.com"),
             Alumno("Jack", "A", "jack@gmail.com"),
@@ -43,9 +43,7 @@ contenedor = [
     {
         "aula": Aula(),
         "profesor": Profesor("Agustino", 3, 7),
-        "alumnos": [
-            Alumno("Ramon", "A", "ramon@gmail.com")
-        ]
+        "alumnos": []
     }
 ]
 
@@ -55,8 +53,15 @@ for item in contenedor:
         item["aula"].add(alumno)
 
     print("-----------------------------------------------------------------------")
-    item["aula"].puntuar()
+    try:
+        item["aula"].puntuar()
+    except Exception as e:
+        print(e)
+       
     print()
-    item["aula"].convocar_examenes()
+    try:
+        item["aula"].convocar_examenes()
+    except Exception as e:
+        print(e)
     print("-----------------------------------------------------------------------")
 

@@ -15,19 +15,25 @@ class Aula:
         print()
 
     def convocar_examenes(self):
+        if len(self.alumnos) == 0:
+            raise Exception("Sin alumnos no hay convocados ----> 0 Convocados")
+        
+        if not self.profesor:
+            raise Exception("No hay profesor")
+
         print(f"PROFESOR: {self.profesor}")
         if len(self.alumnos) > 0:
             for alumno in self.alumnos:
                 alumno.convocar_examen()
 
-        print()
-        
     def puntuar(self):
+        if not self.profesor:
+            raise Exception("Sin profesor no se pueden puntuar examenes")
+
         print(f"PROFESOR: {self.profesor}")
-        if self.profesor:
-            for alumno in self.alumnos:
-                alumno.setNota(self.profesor.generar_nota())
-                alumno.describe()
+        for alumno in self.alumnos:
+            alumno.setNota(self.profesor.generar_nota())
+            alumno.describe()
 
     def set_profesor(self, profesor):
         self.profesor = profesor
