@@ -48,7 +48,7 @@ contenedor = [
 ]
 
 for item in contenedor:
-    item["aula"].set_profesor(item["profesor"]),
+    item["aula"].set_profesor(item["profesor"])
     for alumno in item["alumnos"]:
         item["aula"].add(alumno)
 
@@ -57,8 +57,9 @@ for item in contenedor:
         item["aula"].puntuar()
     except Exception as e:
         print(e)
-       
+
     print()
+
     try:
         item["aula"].convocar_examenes()
     except Exception as e:
