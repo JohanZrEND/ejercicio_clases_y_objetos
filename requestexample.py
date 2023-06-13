@@ -24,17 +24,13 @@ def pretty(d, indent=0):
 def main():
     nombresito = generate_name_and_email()
     print(nombresito)
-    
-def generate_randomuser():
-    results = "2"  # input("Cuantos quieres? ")
-    uri = f'https://randomuser.me/api/?results={results}'
-    randomuser = get_json_from(uri)
-    
-    return randomuser
-    
+
 
 def generate_name_and_email():
-    randomuser = generate_randomuser()
+    results = "10"  # input("Cuantos quieres? ")
+    uri = f'https://randomuser.me/api/?results={results}'
+    randomuser = get_json_from(uri)
+
     user = randomuser["results"][0]
     # user = generate_randomuser()["results"][0]  ----> se puede hacer asi para acortarlo
     return {
