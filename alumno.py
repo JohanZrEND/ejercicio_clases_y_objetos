@@ -1,5 +1,10 @@
-
+from generador_nombre import GeneradorDeNombre
 class Alumno:
+
+    def __init__(self):
+        self.nombre.GeneradorDeNombre
+        self.turno = "A"
+        self.correo.GeneradorDecorreo
 
     def __init__(self, nombre, turno, correo):
         self.nombre = nombre

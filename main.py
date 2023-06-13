@@ -23,7 +23,7 @@ contenedor = [
     },
     {
         "aula": Aula(),
-        "profesor": Profesor("Nuria", 1, 9),
+        "profesor": Profesor("Nuria", 0, 6),
         "alumnos": [    
             Alumno("Persefone", "A", "perse@gmail.com"),
             Alumno("Paula", "A", "paula@hotmail.com"),
