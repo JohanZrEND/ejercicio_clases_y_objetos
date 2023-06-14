@@ -1,9 +1,9 @@
 from alumno import Alumno
 
 class Aula:
-    def __init__(self):
+    def __init__(self, profesor = None):
         self.alumnos = list()
-        self.profesor = None
+        self.profesor = profesor if profesor is not None else profesor
 
     def add(self, nuevo_alumno: Alumno):
         self.alumnos.append(nuevo_alumno)
