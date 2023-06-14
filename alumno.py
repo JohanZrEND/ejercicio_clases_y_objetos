@@ -13,7 +13,7 @@ class Alumno:
 
     def convocar_examen(self):
             if self.nota >= 5:
-                print(f"{self.correo} - {self.nombre} - CONVOCADO")
+                print(f"{self.correo} - {self.nombre} - CONVOCADO ☻")
 
     def describe(self):
         print(f"{self.nombre} - {self.turno} - {self.correo} -> Nota : {self.nota}")
