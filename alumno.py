@@ -1,15 +1,12 @@
 from generador_nombre import GeneradorDeNombre
+
 class Alumno:
 
     def __init__(self):
-        self.nombre.GeneradorDeNombre
+        gen = GeneradorDeNombre()
+        self.nombre = gen.get_name()
         self.turno = "A"
-        self.correo.GeneradorDecorreo
-
-    def __init__(self, nombre, turno, correo):
-        self.nombre = nombre
-        self.turno = turno
-        self.correo = correo
+        self.correo = gen.get_email()
 
     def setNota(self, nota=0):
         self.nota = nota
