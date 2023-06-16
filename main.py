@@ -1,37 +1,49 @@
+from random import randint
 from alumno import Alumno
 from aula import Aula
 from profesor import Profesor
 
-contador = 0
 aulas = []
-profesores = [
-    Profesor("Darius", 0, 10),
-    Profesor("Mordekaiser", 3, 6),
-    Profesor("Miss Fortune", 2, 8),
-    Profesor("Garen", 4, 7),
-    Profesor("Seraphine", 1, 9)
-]
+profesores = []
 
 CANTIDAD = {
-    "aulas" : 5,
-    "alumnos" : 20
+    "aulas" : randint(2, 10),
+    "alumnos" : randint(10, 40),
+    "profes" : randint (3, 5)
 }
 
+CANTIDAD = {
+    "aulas" : 1,
+    "alumnos" : 10,
+    "profes" : 1
+}
+
+
+for i in range(CANTIDAD["profes"]):
+    profesores.append(Profesor(randint(0,4), randint(6,10)))
+   
 for i in range(CANTIDAD["aulas"]):
     aulas.append(Aula())
 
 for i in range(CANTIDAD["alumnos"]):
     aulas[i % len(aulas)].add(Alumno())
 
-for i in range(len(profesores)):
-    aulas[i % len(aulas)].set_profesor(profesores[i])
+i = 0
+for aula in aulas:
+    aula.set_profesor(profesores[i])
+    i += 1
+    if i == len(profesores):
+        i = 0
 
-for profe in profesores:
-    aulas[i % len(aulas)].set_profesor(profe)
+for aula in aulas:
+    aula.listar()
+    aula.convocar_examenes()
 
-for aula in range(len(aulas)):
-    try:
-        aulas[contador].puntuar()
-        aulas[contador].convocar_examenes()
-    except Exception as exception:
-        print(exception)
+# for aula in aulas:
+#     try:
+#         print("\nPUNTUAR ------------------------------")
+#         aula.puntuar()
+#         print("\nCONVOCAR AULA ------------------------")
+#         aula.convocar_examenes()
+#     except Exception as exception:
+#         print(exception)

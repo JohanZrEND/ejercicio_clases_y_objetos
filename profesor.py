@@ -1,17 +1,19 @@
-import random
+from random import randint, uniform
 from user import User
 
 class Profesor(User):
-    def __init__(self, nombre, nota_minima, nota_maxima):
 
-        VALID_NOTES = {
-            "min": (0.0, 4.0),
-            "max": (6.0, 10.0)
-        }
+    VALID_NOTES = {
+        "min": (0.0, 4.0),
+        "max": (6.0, 10.0)
+    }
+
+    def __init__(self, nota_minima, nota_maxima):
+        super().__init__()
 
         def validar_nota_minima(nota_minima):
-            min = VALID_NOTES["min"][0]
-            max = VALID_NOTES["min"][1]
+            min = self.VALID_NOTES["min"][0]
+            max = self.VALID_NOTES["min"][1]
 
             if not str(nota_minima).isnumeric():
                 raise Exception("La nota debe ser un número")
@@ -23,8 +25,8 @@ class Profesor(User):
             return nota_minima
 
         def validar_nota_maxima(nota_maxima):
-            min = VALID_NOTES["max"][0]
-            max = VALID_NOTES["max"][1]
+            min = self.VALID_NOTES["max"][0]
+            max = self.VALID_NOTES["max"][1]
 
             if not str(nota_minima).isnumeric():
                 raise Exception("La nota debe ser un número")
@@ -35,13 +37,15 @@ class Profesor(User):
 
             return nota_maxima
 
-        self.nombre = nombre
-        self.nota_minima = validar_nota_minima(nota_minima) if nota_minima else random.randint(VALID_NOTES["min"][0])
+        self.nota_minima = validar_nota_minima(nota_minima) 
         self.nota_maxima = validar_nota_maxima(nota_maxima)
     
     def __str__(self) -> str:
-        return f"{self.nombre} [{self.nota_minima}/{self.nota_maxima}]"
-
+        return f"{super().__str__()} [{self.nota_minima}/{self.nota_maxima}]"
 
     def generar_nota(self):
-        return(random.uniform(self.nota_minima, self.nota_maxima))
+        return(uniform(self.nota_minima, self.nota_maxima))
+
+if __name__ == "__main__":
+    profe = Profesor(randint(0,4), randint(6,10))
+    print(profe)
