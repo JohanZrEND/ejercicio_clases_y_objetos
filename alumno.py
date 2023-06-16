@@ -1,14 +1,13 @@
-from generador_nombre import GeneradorDeNombre
+from user import User
 
-class Alumno:
+class Alumno(User):
 
     def __init__(self):
-        gen = GeneradorDeNombre()
-        self.nombre = gen.get_name()
-        self.turno = "A"
-        self.correo = gen.get_email()
+        print("randomuser...")
+        super().__init__()
+    
 
-    def setNota(self, nota=0):
+    def setNota(self, nota = 0):
         self.nota = nota
 
     def convocar_examen(self):

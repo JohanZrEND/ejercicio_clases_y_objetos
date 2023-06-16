@@ -1,4 +1,5 @@
 from alumno import Alumno
+from user import User
 
 class Aula:
     def __init__(self, profesor = None):
