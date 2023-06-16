@@ -1,5 +1,5 @@
 from alumno import Alumno
-from user import User
+from profesor import Profesor
 
 class Aula:
     def __init__(self, profesor = None):
@@ -8,7 +8,10 @@ class Aula:
 
     def add(self, nuevo_alumno: Alumno):
         self.alumnos.append(nuevo_alumno)
-    
+
+    def add_profe(self, nuevo_profe: Profesor):
+        self.profesor.append(nuevo_profe)
+
     def listar(self):
         print(f"PROFESOR: {self.profesor}")
         for alumno in self.alumnos:
